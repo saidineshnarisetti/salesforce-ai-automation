@@ -1,0 +1,16 @@
+#!/bin/sh
+
+commit_msg_file="$1"
+commit_message=$(head -n 1 "$commit_msg_file")
+
+if ! printf '%s\n' "$commit_message" | grep -Eq '^Jira:[0-9]+[[:space:]]+[^[:space:]].*$'; then
+    echo ""
+    echo "ERROR: Invalid commit message."
+    echo "Required format: Jira:<ticket-number> <description>"
+    echo "Example: Jira:1234 Fix login validation"
+    echo ""
+    exit 1
+fi
+
+echo "Commit message validation passed."
+exit 0
