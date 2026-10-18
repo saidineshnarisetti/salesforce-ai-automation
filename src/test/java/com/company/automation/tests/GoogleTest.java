@@ -1,32 +1,21 @@
 package com.company.automation.tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class GoogleTest {
+/**
+ * Simple smoke test to verify basic browser functionality and connectivity.
+ */
+public class GoogleTest extends BaseTest {
 
-    @Test
-    public void openGoogle() {
+    @Test(description = "Verify that Google home page title contains 'Google'")
+    public void testGoogleTitle() {
+        // Navigate to Google
+        driver.get("https://www.google.com");
 
-        WebDriver driver = new ChromeDriver();
-
-        try {
-
-            driver.get("https://www.google.com");
-
-            String title = driver.getTitle();
-
-            System.out.println("Title: " + title);
-
-            Assert.assertTrue(
-                title.contains("Google")
-            );
-
-        } finally {
-
-            driver.quit();
-        }
+        // Verify the page title contains "Google"
+        String title = driver.getTitle();
+        Assert.assertTrue(title.contains("Google"),
+            String.format("Expected title to contain 'Google', but was: '%s'", title));
     }
 }

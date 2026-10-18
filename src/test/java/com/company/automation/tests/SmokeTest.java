@@ -1,34 +1,23 @@
-package com.automation.tests;
+package com.company.automation.tests;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.company.automation.pages.google.GoogleHomePage;
+import com.company.automation.utils.TestDataUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SmokeTest {
+import java.util.Properties;
+
+public class SmokeTest extends BaseTest {
 
     @Test
     public void openGoogle() {
+        Properties data = TestDataUtils.load("google.properties");
+        GoogleHomePage google = new GoogleHomePage(driver).open();
 
-        WebDriver driver = new ChromeDriver();
-
-        try {
-
-            driver.get("https://www.google.com");
-
-            String title = driver.getTitle();
-
-            System.out.println(
-                    "Page title: " + title
-            );
-
-            Assert.assertTrue(
-                    title.contains("Google")
-            );
-
-        } finally {
-
-            driver.quit();
-        }
+        Assert.assertTrue(
+                google.getTitle().contains(TestDataUtils.get(data, "pageTitle")),
+                "Google home page title should contain '" + TestDataUtils.get(data, "pageTitle") + "'"
+        );
+        Assert.assertTrue(google.isSearchFieldVisible(), "Search field should be visible");
     }
 }
