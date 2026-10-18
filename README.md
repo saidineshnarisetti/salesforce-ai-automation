@@ -8,6 +8,6 @@ All developers must follow this commit message format:
 - **Invalid:** `Jira:1234`
 - **Invalid:** `JIRA:1234 Fix login`
 ### Setup
-After cloning the repository, activate local verifications -test update(Main branch):
+After cloning the repository, activate local verifications -test update(feature/commit-validation):
 ```bash
 ./scripts/setup-git-hooks.sh
