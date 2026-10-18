@@ -10,7 +10,7 @@ public class GoogleTest extends BaseTest {
 
     @Test(description = "Verify that Google home page title contains 'Google-Titles'")
     public void testGoogleTitle() {
-        // Navigate to Google
+        // Navigate to Google page
         driver.get("https://www.google.com");
 
         // Verify the page title contains "Google-Title"
