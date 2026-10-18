@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  */
 public class GoogleTest extends BaseTest {
 
-    @Test(description = "Verify that Google home page title contains 'Google-Title'")
+    @Test(description = "Verify that Google home page title contains 'Google-Titles'")
     public void testGoogleTitle() {
         // Navigate to Google
         driver.get("https://www.google.com");
