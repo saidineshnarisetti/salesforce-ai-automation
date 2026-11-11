@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Salesforce Automation Suite" parallel="methods" thread-count="2" verbose="1">
+<suite name="Salesforce Automation Suite" parallel="methods" thread-count="2" verbose="2">
 
     <listeners>
         <listener class-name="com.company.automation.listeners.TestListener"/>
@@ -10,7 +10,16 @@
         <classes>
             <class name="com.company.automation.tests.SmokeTest"/>
             <class name="com.company.automation.tests.GoogleTest"/>
+            <class name="com.company.automation.tests.CommitMessageValidationTest"/>
+            <class name="com.company.automation.tests.CommitValidationDemoTest"/>
             <!-- <class name="com.company.automation.tests.SalesforceHomePageTest"/> -->
+        </classes>
+    </test>
+
+    <test name="Salesforce Tests" parallel="methods" thread-count="2">
+        <classes>
+            <class name="com.company.automation.tests.SalesforceLoginTest"/>
+            <class name="com.company.automation.tests.SalesforceHomePageTest"/>
         </classes>
     </test>
 
